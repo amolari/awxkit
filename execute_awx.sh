@@ -1,2 +1,2 @@
 #!/bin/bash
-tar --version
+./awx --version 2>&1
