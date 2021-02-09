@@ -1,0 +1,95 @@
+{
+    "schemaVersion": "1.18.0",
+    "class": "Device",
+    "async": true,
+    "webhook": "",
+    "label": "first test for declarative onboarding",
+    "Common": {
+        "class": "Tenant",
+        "mySystem": {
+            "class": "System",
+            "hostname": "$hostname",
+            "cliInactivityTimeout": 1200,
+            "consoleInactivityTimeout": 1200,
+            "autoPhonehome": false
+        },
+        "myLicense": {
+            "class": "License",
+            "licenseType": "licensePool",
+            "bigIqHost": "$bigIqAddress",
+            "bigIqUsername": "$bigIqUsername",
+            "bigIqPassword": "$bigIqPassword",
+            "licensePool": "$bigIqLicensePoolName",
+            "reachable": false,
+            "hypervisor": "aws",
+            "tenant": "$bigIqLicenseTenant"
+        },
+        "myDns": {
+            "class": "DNS",
+            "nameServers": [
+                "$NAME_SERVER"
+            ],
+        },
+        "myNtp": {
+            "class": "NTP",
+            "servers": [
+                "$ntpServer"
+            ],
+            "timezone": "$timezone"
+        },
+        "root": {
+            "class": "User",
+            "userType": "root",
+            "oldPassword": "default",
+            "newPassword": "myNewPass1word"
+        },
+        "admin": {
+            "class": "User",
+            "userType": "regular",
+            "password": "asdfjkl",
+            "shell": "bash"
+        },        
+        "myProvisioning": {
+            "class": "Provision",
+            "ltm": "nominal",
+            "asm": "nominal"
+        },
+        "internal": {
+            "class": "VLAN",
+            "tag": 4094,
+            "mtu": 1500,
+            "interfaces": [
+                {
+                    "name": "1.0",
+                    "tagged": false
+                }
+            ],
+            "cmpHash": "default"
+        },
+        "internal-self": {
+            "class": "SelfIp",
+            "address": "$SELF_IP/$SELF_IP_PREFIX",
+            "vlan": "internal",
+            "allowService": "default",
+            "trafficGroup": "traffic-group-local-only"
+        },
+        "localRoute": {
+            "class": "Route",
+            "gw": "$DEF_GW",
+            "network": "default",
+			"localOnly": true
+        },
+        "managementRoute": {
+            "class": "ManagementRoute",
+            "gw": "$DEF_GW",
+            "network": "default",
+            "mtu": 1500
+        },
+        "dbvars": {
+            "class": "DbVariables",
+            "ui.advisory.enabled": true,
+            "ui.advisory.color": "green",
+            "ui.advisory.text": "/Common/hostname"
+        }
+    }
+}
