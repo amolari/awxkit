@@ -2,7 +2,6 @@
     "schemaVersion": "1.18.0",
     "class": "Device",
     "async": true,
-    "webhook": "",
     "label": "first test for declarative onboarding",
     "Common": {
         "class": "Tenant",
