@@ -21,6 +21,7 @@
             "licensePool": "$bigIqLicensePoolName",
             "reachable": false,
             "hypervisor": "aws",
+            "unitOfMeasure": "yearly",
             "tenant": "$bigIqLicenseTenant"
         },
         "myDns": {
@@ -35,19 +36,7 @@
                 "$ntpServer"
             ],
             "timezone": "$timezone"
-        },
-        "root": {
-            "class": "User",
-            "userType": "root",
-            "oldPassword": "default",
-            "newPassword": "asdfjkl%31"
-        },
-        "admin": {
-            "class": "User",
-            "userType": "regular",
-            "password": "asdfjkl%31",
-            "shell": "bash"
-        },        
+        }, 
         "myProvisioning": {
             "class": "Provision",
             "ltm": "nominal",
@@ -80,6 +69,8 @@
         },
         "dbvars": {
             "class": "DbVariables",
+            "tm.tcpudptxchecksum": "Software-only",
+            "liveupdate.autodownload": "disable",
             "ui.advisory.enabled": true,
             "ui.advisory.color": "green",
             "ui.advisory.text": "/Common/hostname"
