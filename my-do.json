@@ -41,12 +41,12 @@
             "class": "User",
             "userType": "root",
             "oldPassword": "default",
-            "newPassword": "myNewPass1word"
+            "newPassword": "asdfjkl%31"
         },
         "admin": {
             "class": "User",
             "userType": "regular",
-            "password": "asdfjkl",
+            "password": "asdfjkl%31",
             "shell": "bash"
         },        
         "myProvisioning": {
