@@ -78,12 +78,6 @@
             "network": "default",
             "localOnly": true
         },
-        "managementRoute": {
-            "class": "ManagementRoute",
-            "gw": "$DEF_GW",
-            "network": "default",
-            "mtu": 1500
-        },
         "dbvars": {
             "class": "DbVariables",
             "ui.advisory.enabled": true,
