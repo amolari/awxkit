@@ -28,7 +28,7 @@
             "class": "DNS",
             "nameServers": [
                 "$NAME_SERVER"
-            ],
+            ]
         },
         "myNtp": {
             "class": "NTP",
