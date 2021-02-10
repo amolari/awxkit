@@ -81,7 +81,7 @@
             "class": "SSHD",
             "allow": "all",
             "inactivityTimeout": 300,
-            "banner": "WARNING\\nThis system is for the use of Richemont authorized users only.\\nIf you are not authorized, leave this system immediately.\\n"
+            "banner": "WARNING"
         },
         "globalSysSettings": {
             "class": "System",
