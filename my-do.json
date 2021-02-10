@@ -3,7 +3,7 @@
     "class": "Device",
     "async": true,
     "label": "first test for declarative onboarding",
-	"controls": {
+    "controls": {
         "trace": true,
         "traceResponse": true
     },
@@ -25,7 +25,7 @@
             "licensePool": "$bigIqLicensePoolName",
             "reachable": false,
             "hypervisor": "aws",
-			"unitOfMeasure": "yearly",
+            "unitOfMeasure": "yearly",
             "tenant": "$bigIqLicenseTenant"
         },
         "myDns": {
@@ -69,7 +69,7 @@
             "class": "Route",
             "gw": "$DEF_GW",
             "network": "default",
-			"localOnly": true
+            "localOnly": true
         },
         "managementRoute": {
             "class": "ManagementRoute",
@@ -77,34 +77,34 @@
             "network": "default",
             "mtu": 1500
         },
-		"sshSettings": {
+        "sshSettings": {
             "class": "SSHD",
             "allow": "all",
-			"inactivityTimeout": 300,
+            "inactivityTimeout": 300,
             "banner": "WARNING\nThis system is for the use of Richemont authorized users only.\nIf you are not authorized, leave this system immediately.\n"
-		},
-		"globalSysSettings": {
+        },
+        "globalSysSettings": {
             "class": "System",
-			"autoCheck": false,
-			"autoPhonehome": false,
-			"cliInactivityTimeout": 300,
-			"consoleInactivityTimeout": 300,
-			"guiAuditLog": true,
-			"tmshAuditLog": true
-		},
-		"SnmpAgent": {
-		    "class": "SnmpAgent",
-			"contact": "$snmpSysContact",
-			"location": "$region"			
-		},
+            "autoCheck": false,
+            "autoPhonehome": false,
+            "cliInactivityTimeout": 300,
+            "consoleInactivityTimeout": 300,
+            "guiAuditLog": true,
+            "tmshAuditLog": true
+        },
+        "SnmpAgent": {
+            "class": "SnmpAgent",
+            "contact": "$snmpSysContact",
+            "location": "$region"           
+        },
         "dbvars": {
             "class": "DbVariables",
-			"tm.tcpudptxchecksum": "Software-only",
+            "tm.tcpudptxchecksum": "Software-only",
             "liveupdate.autodownload": "disable",
             "ui.advisory.enabled": true,
             "ui.advisory.color": "green",
             "ui.advisory.text": "DeploymentName: $deploymentName - EC2-ID: $instanceId - $availabilityZone",
-			"ui.is24hour": true
+            "ui.is24hour": true
         }
     }
 }
