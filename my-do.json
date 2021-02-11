@@ -1,5 +1,5 @@
 {
-    "schemaVersion": "1.18.0",
+    "schemaVersion": "1.17.0",
     "class": "Device",
     "async": true,
     "label": "first test for declarative onboarding",
@@ -36,9 +36,6 @@
         },
         "myNtp": {
             "class": "NTP",
-            "servers": [
-                "$ntpServer"
-            ],
             "timezone": "$timezone"
         },
         "myProvisioning": {
@@ -77,34 +74,10 @@
             "network": "default",
             "mtu": 1500
         },
-        "mySSH": {
-            "class": "SSHD",
-            "allow": "all",
-            "inactivityTimeout": 300,
-            "banner": "WARNING"
-        },
-        "mySysSettings": {
-            "class": "System",
-            "autoCheck": false,
-            "autoPhonehome": false,
-            "cliInactivityTimeout": 300,
-            "consoleInactivityTimeout": 300,
-            "guiAuditLog": true,
-            "tmshAuditLog": true
-        },
-        "mySnmpAgent": {
-            "class": "SnmpAgent",
-            "contact": "$snmpSysContact",
-            "location": "$region"           
-        },
         "myDbVars": {
             "class": "DbVariables",
             "tm.tcpudptxchecksum": "Software-only",
-            "liveupdate.autodownload": "disable",
-            "ui.advisory.enabled": true,
-            "ui.advisory.color": "green",
-            "ui.advisory.text": "DeploymentName: $deploymentName - EC2-ID: $instanceId - $availabilityZone",
-            "ui.is24hour": true
+            "liveupdate.autodownload": "disable"
         }
     }
 }
