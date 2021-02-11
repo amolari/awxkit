@@ -30,6 +30,9 @@
         },
         "myNtp": {
             "class": "NTP",
+             "servers": [
+                "$ntpServer"
+            ],
             "timezone": "$timezone"
         },
         "myProvisioning": {
@@ -37,17 +40,43 @@
             "ltm": "nominal",
             "asm": "nominal"
         },
+        "internal": {
+            "class": "VLAN",
+            "tag": 4094,
+            "mtu": 1500,
+            "interfaces": [
+                {
+                    "name": "1.0",
+                    "tagged": false
+                }
+            ],
+            "cmpHash": "default"
+        },
+        "internal-self": {
+            "class": "SelfIp",
+            "address": "$SELF_IP/$SELF_IP_PREFIX",
+            "vlan": "internal",
+            "allowService": "default",
+            "trafficGroup": "traffic-group-local-only"
+        },
+        
         "localRoute": {
             "class": "Route",
             "gw": "$DEF_GW",
             "network": "default",
             "localOnly": true
         },
+        "managementRoute": {
+            "class": "ManagementRoute",
+            "gw": "$DEF_GW",
+            "network": "default",
+            "mtu": 1500
+        },
         "sshSettings": {
             "class": "SSHD",
             "allow": "all",
             "inactivityTimeout": 300,
-            "banner": "WARNING\\nThis system is for the use of Richemont authorized users only.\\nIf you are not authorized, leave this system immediately.\\n"
+            "banner": "WARNING\n\nThis system is for the use of Richemont authorized users only.\nIf you are not authorized, leave this system immediately."
         },
         "globalSysSettings": {
             "class": "System",
@@ -65,6 +94,8 @@
         },
         "dbvars": {
             "class": "DbVariables",
+            "provision.extramb": 1000,
+            "restjavad.useextramb": true,
             "tm.tcpudptxchecksum": "Software-only",
             "liveupdate.autodownload": "disable",
             "ui.advisory.enabled": true,
