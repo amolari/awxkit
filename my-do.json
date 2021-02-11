@@ -21,7 +21,7 @@
             "licenseType": "licensePool",
             "bigIqHost": "$bigIqAddress",
             "bigIqUsername": "$bigIqUsername",
-            "bigIqPassword": "$bigIqPassword",
+            "bigIqPasswordUri": "$bigIqPasswordUri",
             "licensePool": "$bigIqLicensePoolName",
             "reachable": false,
             "hypervisor": "aws",
