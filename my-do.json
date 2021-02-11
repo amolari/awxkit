@@ -28,12 +28,6 @@
             "unitOfMeasure": "yearly",
             "tenant": "$bigIqLicenseTenant"
         },
-        "myDns": {
-            "class": "DNS",
-            "nameServers": [
-                "$NAME_SERVER"
-            ]
-        },
         "myNtp": {
             "class": "NTP",
             "timezone": "$timezone"
@@ -43,41 +37,40 @@
             "ltm": "nominal",
             "asm": "nominal"
         },
-        "internal": {
-            "class": "VLAN",
-            "tag": 4094,
-            "mtu": 1500,
-            "interfaces": [
-                {
-                    "name": "1.0",
-                    "tagged": false
-                }
-            ],
-            "cmpHash": "default"
-        },
-        "internal-self": {
-            "class": "SelfIp",
-            "address": "$SELF_IP/$SELF_IP_PREFIX",
-            "vlan": "internal",
-            "allowService": "default",
-            "trafficGroup": "traffic-group-local-only"
-        },
         "localRoute": {
             "class": "Route",
             "gw": "$DEF_GW",
             "network": "default",
             "localOnly": true
         },
-        "managementRoute": {
-            "class": "ManagementRoute",
-            "gw": "$DEF_GW",
-            "network": "default",
-            "mtu": 1500
+        "sshSettings": {
+            "class": "SSHD",
+            "allow": "all",
+            "inactivityTimeout": 300,
+            "banner": "WARNING\\nThis system is for the use of Richemont authorized users only.\\nIf you are not authorized, leave this system immediately.\\n"
         },
-        "myDbVars": {
+        "globalSysSettings": {
+            "class": "System",
+            "autoCheck": false,
+            "autoPhonehome": false,
+            "cliInactivityTimeout": 300,
+            "consoleInactivityTimeout": 300,
+            "guiAuditLog": true,
+            "tmshAuditLog": true
+        },
+        "SnmpAgent": {
+            "class": "SnmpAgent",
+            "contact": "$snmpSysContact",
+            "location": "$region"
+        },
+        "dbvars": {
             "class": "DbVariables",
             "tm.tcpudptxchecksum": "Software-only",
-            "liveupdate.autodownload": "disable"
+            "liveupdate.autodownload": "disable",
+            "ui.advisory.enabled": true,
+            "ui.advisory.color": "green",
+            "ui.advisory.text": "DeploymentName: $deploymentName - EC2-ID: $instanceId - $availabilityZone",
+            "ui.is24hour": true
         }
     }
 }
