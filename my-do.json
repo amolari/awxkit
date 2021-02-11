@@ -77,13 +77,13 @@
             "network": "default",
             "mtu": 1500
         },
-        "sshSettings": {
+        "mySSH": {
             "class": "SSHD",
             "allow": "all",
             "inactivityTimeout": 300,
             "banner": "WARNING"
         },
-        "globalSysSettings": {
+        "mySysSettings": {
             "class": "System",
             "autoCheck": false,
             "autoPhonehome": false,
@@ -92,12 +92,12 @@
             "guiAuditLog": true,
             "tmshAuditLog": true
         },
-        "SnmpAgent": {
+        "mySnmpAgent": {
             "class": "SnmpAgent",
             "contact": "$snmpSysContact",
             "location": "$region"           
         },
-        "dbvars": {
+        "myDbVars": {
             "class": "DbVariables",
             "tm.tcpudptxchecksum": "Software-only",
             "liveupdate.autodownload": "disable",
