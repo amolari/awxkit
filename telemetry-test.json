@@ -16,9 +16,12 @@
         "dataType": "metrics",
         "metricNamespace": "f5_testing_namespace",
         "region": "$region",
-        "customDeploymentName": "$deploymentName",
-        "customEnvironment": "$environment",
-        "customInstanceId": "$instanceId"
-        }
+        "customOpts": [
+          {
+             "customDeploymentName": "$deploymentName",
+             "customEnvironment": "$environment",
+             "customInstanceId": "$instanceId"
+          }
+        ]
     }
 }
