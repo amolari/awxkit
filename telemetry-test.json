@@ -1,27 +1,47 @@
 {
     "class": "Telemetry",
-    "My_System": {
-        "class": "Telemetry_System",
-        "systemPoller": {
+    "controls": {
+         "class": "Controls",
+         "logLevel": "info"
+     },
+    "My_Metrics_Namespace": {
+        "class": "Telemetry_Namespace",
+        "My_Poller": {
+            "class": "Telemetry_System_Poller",
             "interval": 60
+        },
+        "My_AWS_CW_Metrics_Consumer": {
+            "class": "Telemetry_Consumer",
+            "type": "AWS_CloudWatch",
+            "dataType": "metrics",
+            "metricNamespace": "f5_testing_namespace",
+            "region": "$region",
+            "customOpts": [
+                {
+                    "deploymentName": "$deploymentName",
+                    "environment": "$environment",
+                    "instanceId": "$instanceId"
+                }
+            ],
+            "enable": true,
+            "trace": false
+        },
+        "My_Statsd_Metrics:Consumer": {
+            "class": "Telemetry_Consumer",
+            "type": "Statsd",
+            "host": "SLAB00001.rccad.net",
+            "protocol": "udp",
+            "port": 8125,
+            "customOpts": [
+                {
+                    "deploymentName": "$deploymentName",
+                    "environment": "$environment",
+                    "instanceId": "$instanceId"
+                }
+            ],
+            "enable": false,
+            "trace": false
         }
-    },
-    "My_Listener": {
-        "class": "Telemetry_Listener",
-        "port": 6514
-    },
-    "My_Consumer": {
-        "class": "Telemetry_Consumer",
-        "type": "AWS_CloudWatch",
-        "dataType": "metrics",
-        "metricNamespace": "f5_testing_namespace",
-        "region": "$region",
-        "customOpts": [
-          {
-             "customDeploymentName": "$deploymentName",
-             "customEnvironment": "$environment",
-             "customInstanceId": "$instanceId"
-          }
-        ]
     }
 }
+
